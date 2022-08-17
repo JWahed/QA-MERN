@@ -1,6 +1,17 @@
 const express = require("express");
 const app = express();
 
+// middleware
+app.use((req, res, next) => {
+    const logEntry = `host: ${req.hostname}
+    ip: ${req.ip}
+    method: ${req.method}
+    path: ${req.path}
+    time: ${new Date()}`;
+    console.log(logEntry);
+    next();
+});
+
 // get
 app.get("/", (req, res) => {
     res.status(200).send("Hello, my name is Jakob!");
