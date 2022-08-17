@@ -19,11 +19,11 @@ app.get("/", (req, res) => {
 
 // getAll
 let names = [
-    "Sky", 
-    "Abdullah", 
-    "Fred", 
-    "Tom", 
-    "Rayhan", 
+    "Sky",
+    "Abdullah",
+    "Fred",
+    "Tom",
+    "Rayhan",
     "Jakob"
 ];
 
@@ -58,7 +58,7 @@ app.patch("/replaceName/:index", (req, res) => {
 app.delete("/delete/:id", (req, res) => {
     let deletedName = names.splice(req.params.id, 1)
     res.status(200).send(`${deletedName} has been removed from names`);
-}); 
+});
 
 
 app.listen(8000);
