@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const json = require("express").json();
 
 // get
 router.get("/", (req, res) => {
@@ -26,7 +25,7 @@ router.get("/get/:id", (req, res) => {
 });
 
 // post new name
-router.use(express.json());
+// router.use(express.json());
 
 router.post("/post", (req, res) => {
     const name = req.body.name;
