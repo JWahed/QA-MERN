@@ -9,12 +9,12 @@ app.use((req, res, next) => {
     path: ${req.path}
     time: ${new Date()}`;
     console.log(logEntry);
-    next();
+    return next();
 });
 
 // get
 app.get("/", (req, res) => {
-    res.status(200).send("Hello, my name is Jakob!");
+    return res.status(200).send("Hello, my name is Jakob!");
 });
 
 // getAll
@@ -28,12 +28,12 @@ let names = [
 ];
 
 app.get("/all", (req, res) => {
-    res.status(200).send(names);
+    return res.status(200).send(names);
 });
 
 // getById
 app.get("/get/:id", (req, res) => {
-    res.status(200).send(names[req.params.id]);
+    return res.status(200).send(names[req.params.id]);
 });
 
 // post new name
@@ -42,7 +42,7 @@ app.use(express.json());
 app.post("/create", (req, res) => {
     const name = req.body.name;
     names.push(name);
-    res.status(201).send(`Added: ${name}`);
+    return res.status(201).send(`Added: ${name}`);
 });
 
 // patch a name
@@ -51,13 +51,13 @@ app.patch("/replaceName/:index", (req, res) => {
     const index = req.params.index;
     const old = names[index];
     names[index] = name;
-    res.status(200).send(`${old} has been replaced with ${name}`);
+    return res.status(200).send(`${old} has been replaced with ${name}`);
 });
 
 // deleteById
 app.delete("/delete/:id", (req, res) => {
     let deletedName = names.splice(req.params.id, 1)
-    res.status(200).send(`${deletedName} has been removed from names`);
+    return res.status(200).send(`${deletedName} has been removed from names`);
 });
 
 
