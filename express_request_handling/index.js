@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 require('dotenv').config();
 
 const end = require('./routes/end');
@@ -24,4 +23,8 @@ connection.once('open', () => {
 
 app.use(express.json(), logging, names, end);
 
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+const server = app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
+module.exports = server;
