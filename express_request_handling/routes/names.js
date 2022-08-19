@@ -1,38 +1,73 @@
 const router = require('express').Router();
+const names = require('../model/names.schema');
 
 // get
 router.get('/', (req, res) => res.status(200).send('Hello, my name is Jakob!'));
 
 // getAll
-const names = ['Sky', 'Abdullah', 'Fred', 'Tom', 'Rayhan', 'Jakob'];
-
-router.get('/all', (req, res) => res.status(200).send(names));
+router.get('/all', async (req, res, next) => {
+  try {
+    const allNames = await names.find();
+    return res.status(200).json(allNames);
+  } catch (err) {
+    return next(err);
+  }
+});
 
 // getById
-router.get('/get/:id', (req, res) => res.status(200).send(names[req.params.id]));
+router.get('/get/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    if (id === null || id === undefined) {
+      return next({ statusCode: 400, message: 'Incorrect id' });
+    }
+
+    const name = await names.findById(id);
+    return res.status(200).json(name);
+  } catch (err) {
+    return next(err);
+  }
+});
 
 // post new name
-// router.use(express.json());
+router.post('/post', async (req, res, next) => {
+  try {
+    const { name } = req.body;
 
-router.post('/post', (req, res) => {
-  const { name } = req.body;
-  names.push(name);
-  res.status(201).send(`Added: ${name}`);
+    if (name === null || name === undefined) {
+      return next({ statusCode: 400, message: 'Invalid name' });
+    }
+
+    const created = await names.create(req.body);
+    return res.status(201).json(created);
+  } catch (err) {
+    return next(err);
+  }
 });
 
 // patch a name
-router.patch('/replaceName/:id', (req, res) => {
-  const { name } = req.query;
-  const { id } = req.params;
-  const old = names[id];
-  names[id] = name;
-  res.status(200).send(`${old} has been replaced with ${name}`);
+router.patch('/replaceName/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { query } = req;
+    const updated = await names.findByIdAndUpdate(id, query);
+
+    return res.status(200).json(updated);
+  } catch (err) {
+    return next(err);
+  }
 });
 
 // deleteById
-router.delete('/delete/:id', (req, res) => {
-  const deletedName = names.splice(req.params.id, 1);
-  res.status(200).send(`${deletedName} has been removed from names`);
+router.delete('/delete/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const deleted = await names.findByIdAndDelete(id);
+    return res.status(204).json(deleted);
+  } catch (err) {
+    return next(err);
+  }
 });
 
 module.exports = router;
