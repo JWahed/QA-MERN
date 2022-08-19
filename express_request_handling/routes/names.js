@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const names = require('../model/names.schema');
+const Names = require('../model/names.schema');
 
 // get
 router.get('/', (req, res) => res.status(200).send('Hello, my name is Jakob!'));
@@ -7,7 +7,7 @@ router.get('/', (req, res) => res.status(200).send('Hello, my name is Jakob!'));
 // getAll
 router.get('/all', async (req, res, next) => {
   try {
-    const allNames = await names.find();
+    const allNames = await Names.find();
     return res.status(200).json(allNames);
   } catch (err) {
     return next(err);
@@ -23,7 +23,7 @@ router.get('/get/:id', async (req, res, next) => {
       return next({ statusCode: 400, message: 'Incorrect id' });
     }
 
-    const name = await names.findById(id);
+    const name = await Names.findById(id);
     return res.status(200).json(name);
   } catch (err) {
     return next(err);
@@ -39,7 +39,7 @@ router.post('/post', async (req, res, next) => {
       return next({ statusCode: 400, message: 'Invalid name' });
     }
 
-    const created = await names.create(req.body);
+    const created = await Names.create(req.body);
     return res.status(201).json(created);
   } catch (err) {
     return next(err);
@@ -47,11 +47,11 @@ router.post('/post', async (req, res, next) => {
 });
 
 // patch a name
-router.patch('/replaceName/:id', async (req, res, next) => {
+router.patch('/updateName/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
     const { query } = req;
-    const updated = await names.findByIdAndUpdate(id, query);
+    const updated = await Names.findByIdAndUpdate(id, query);
 
     return res.status(200).json(updated);
   } catch (err) {
@@ -63,7 +63,7 @@ router.patch('/replaceName/:id', async (req, res, next) => {
 router.delete('/delete/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
-    const deleted = await names.findByIdAndDelete(id);
+    const deleted = await Names.findByIdAndDelete(id);
     return res.status(204).json(deleted);
   } catch (err) {
     return next(err);
