@@ -1,17 +1,27 @@
 const express = require('express');
+const mongoose = require('mongoose');
 
 const app = express();
 
-const bodyParser = require('body-parser');
+// eslint-disable-next-line import/no-extraneous-dependencies
+require('dotenv').config();
+
 const end = require('./routes/end');
 const logging = require('./routes/logging');
 const names = require('./routes/names');
 
-// const mongoose = require('mongoose');
+app.use(express.json());
 
-// mongoose.connect
+const port = process.env.PORT || 10000;
+const uri = process.env.DB_URI;
 
-app.use(bodyParser.json(), logging, names, end);
-app.listen(8000);
+const { connection } = mongoose;
 
-console.log('this is running');
+mongoose.connect(uri, { useNewUrlParser: true });
+connection.once('open', () => {
+  console.log('Successfully connected to DB');
+});
+
+app.use(express.json(), logging, names, end);
+
+app.listen(port, () => console.log(`Server is running on port ${port}`));
