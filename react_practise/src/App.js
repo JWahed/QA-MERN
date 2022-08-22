@@ -1,24 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
-import PersonInfo from './PersonInfo';
+import PersonInfo from './components/PersonInfo';
+import ConmponentWithProps from './components/ComponentWithProps';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {/* Edit <code>src/App.js</code> and save to reload. */}
-          <PersonInfo/>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1 id="info">
+          <PersonInfo forename="Fake" surname="Name" line1="House House" line2="4th Street" city="London" postCode="FA1 1KE"/>
+          <ConmponentWithProps headerProp="hi"/>
+        </h1>
       </header>
     </div>
   );
