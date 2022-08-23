@@ -11,7 +11,14 @@ const Counter = () => {
     const downOne = () => setCounter(count => count - 1);
     const downFive = () => setCounter(count => count - 5);
 
-    const saveActions = () => {setPreviousActions((prev) => [...prev, counter])};
+    const saveActions = () => {
+        if (previousActions.length < 5) {
+            setPreviousActions((prev) => [...prev, counter])
+        } else {
+            previousActions.shift(1)
+            setPreviousActions((prev) => [...prev, counter])
+        }
+    };
 
     return(
         <>
@@ -27,7 +34,7 @@ const Counter = () => {
             <p>History</p>
             <ul>
                 {previousActions.map((counter, index) => (
-                    <li key={index}>{counter}</li>
+                <li key={index}>{counter}</li>
                 ))}
             </ul>
         </>
