@@ -3,6 +3,7 @@ import './App.css';
 import PersonInfo from './components/PersonInfo';
 import ConmponentWithProps from './components/ComponentWithProps';
 import Login from './components/Login';
+import Car from './components/Car';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <h1 id="info">
           <PersonInfo forename="Fake" surname="Name" line1="House House" line2="4th Street" city="London" postCode="FA1 1KE"/>
           <ConmponentWithProps/>
-          <Login></Login>
+          <Login/>
+          <Car/>
         </h1>
       </header>
     </div>
