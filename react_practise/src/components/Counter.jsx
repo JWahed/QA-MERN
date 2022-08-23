@@ -12,12 +12,10 @@ const Counter = () => {
     const downFive = () => setCounter(count => count - 5);
 
     const saveActions = () => {
-        if (previousActions.length < 5) {
-            setPreviousActions((prev) => [...prev, counter])
-        } else {
+        if (previousActions.length > 5) {
             previousActions.shift(1)
-            setPreviousActions((prev) => [...prev, counter])
         }
+        setPreviousActions((prev) => [...prev, counter]) 
     };
 
     return(
