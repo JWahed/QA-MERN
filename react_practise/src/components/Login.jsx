@@ -8,11 +8,13 @@ const Login = () => {
     return(
         <>
             <form>
-                <label>Username:</label>
+                <label htmlFor="username">Username:</label>
                 <input name="username" type="text" value={user} onChange={(event) => setUser(event.target.value)}></input>
-                <label>Password:</label>
+                
+                <label htmlFor="password">Password:</label>
                 <input name="password" type="text" value={pass} onChange={(event) => setPass(event.target.value)}></input>
                 <br/>
+                
                 <button>Submit</button>
             </form>
         </>
