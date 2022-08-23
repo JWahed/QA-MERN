@@ -17,8 +17,8 @@ function App() {
           <ConmponentWithProps/>
           <Login/>
           <Car/> */}
-          {/* <ProductTable/> */}
-          <Counter/>
+          <ProductTable/>
+          {/* <Counter/> */}
         </h1>
       </header>
     </div>

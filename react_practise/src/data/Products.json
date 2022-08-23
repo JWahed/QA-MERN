@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "category": "sandwich",
+        "flavour": "tuna",
+        "cost": 2.56
+    },
+    {
+        "id": 2,
+        "category": "sandwich",
+        "flavour": "ploughman's",
+        "cost": 3.99
+    },
+    {
+        "id": 3,
+        "category": "sandwich",
+        "flavour": "chicken",
+        "cost": 1.99
+    },
+    {
+        "id": 4,
+        "category": "biscuit",
+        "flavour": "shortbread",
+        "cost": 1.99
+    },
+    {
+        "id": 5,
+        "category": "biscuit",
+        "flavour": "chocolate chip",
+        "cost": 3.99
+    }
+]
