@@ -5,12 +5,12 @@ const ComponentWithProps = (props) => {
     const { headerProp, contentProp, numberProp, nonexistent } = props;
 
     return (
-        <div>
+        <>
             <h1> {headerProp} </h1>
             <p> {contentProp} </p>
             <p> {numberProp} </p>
             <p> {nonexistent} howdy </p>
-        </div>
+        </>
     )
 };
 

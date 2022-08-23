@@ -5,13 +5,13 @@ const PersonInfo = (props) => {
     const { forename, surname, line1, line2, city, postCode } = props;
 
     return (
-        <div>
+        <>
             <p>{forename} {surname}</p>
             <p>{line1}</p>
             <p>{line2}</p>
             <p>{city}</p>
             <p>{postCode}</p>
-        </div>
+        </>
     );
 };
 
