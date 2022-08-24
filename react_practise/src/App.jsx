@@ -4,8 +4,9 @@ import './App.css';
 // import ConmponentWithProps from './components/ComponentWithProps';
 // import Login from './components/Login';
 // import Car from './components/Car';
-import ProductTable from './components/ProductTable';
+// import ProductTable from './components/ProductTable';
 // import Counter from './components/Counter';
+import Cart from './components/basket/Cart';
 
 function App() {
   return (
@@ -18,8 +19,9 @@ function App() {
           <ConmponentWithProps/>
           <Login/>
           <Car/> */}
-          <ProductTable />
+          {/* <ProductTable /> */}
           {/* <Counter/> */}
+          <Cart />
         </h1>
       </header>
     </div>
