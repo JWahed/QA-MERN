@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Products from '../data/Products.json';
-import contains from './Valid';
+import Valid from './Valid';
 
 function ProductTable() {
   const [search, setSearch] = useState('');
@@ -10,7 +10,7 @@ function ProductTable() {
       <input type="text" name="searchBox" placeholder="search here" value={search} onChange={(e) => setSearch(e.target.value)} />
       <br />
       <ul>
-        {Products.filter((prod) => contains(prod, search)).map((prod) => (
+        {Products.filter((prod) => Valid(prod, search)).map((prod) => (
           <li key={prod.id}>
             {prod.flavour}
             ,
