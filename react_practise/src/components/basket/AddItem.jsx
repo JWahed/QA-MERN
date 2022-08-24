@@ -1,4 +1,3 @@
-// eslint-disable-next-line react/prop-types
 function AddItem({ submitHandler, newItem, handleAdd }) {
   return (
     <form onSubmit={submitHandler}>
