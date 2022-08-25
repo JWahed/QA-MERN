@@ -9,7 +9,7 @@ import './App.css';
 // import Counter from './components/Counter';
 // import Cart from './components/basket/Cart';
 // import HideText from './components/hooks_exercise/HideText';
-import FilmRequest from './components/film_request/FilmRequest ';
+import FilmRequest from './components/film_request/FilmRequest';
 import NotFound from './components/routes_exercise/NotFound';
 import Home from './components/routes_exercise/Home';
 import Contact from './components/routes_exercise/Contact';
