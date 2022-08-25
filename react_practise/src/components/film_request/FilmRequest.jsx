@@ -6,22 +6,23 @@ function FilmRequest() {
   const [data, setData] = useState([]);
   const [filmTitle, setFilmTitle] = useState('');
 
+  const {
+    Title, Rated, Year, Plot,
+  } = data;
+
   const updateFilmTitle = (e) => {
     e.preventDefault();
     setFilmTitle(e.target.value);
   };
   const request = async () => {
     try {
-      const res = await axios.get(`http://www.omdbapi.com/?apikey=c4fe7f18=${filmTitle}`);
+      const res = await axios.get(`http://www.omdbapi.com/?apikey=8a2571cb&t=${filmTitle}`);
       setData(res.data);
+      console.log(res.data);
     } catch (err) {
       console.error(err);
     }
   };
-
-  useEffect(() => {
-    request();
-  }, [filmTitle]);
 
   return (
     <>
@@ -41,10 +42,26 @@ function FilmRequest() {
       >
         Search
       </button>
-      <p>{data.Title}</p>
-      <p>{data.Rated}</p>
-      <p>{data.Year}</p>
-      <p>{data.Plot}</p>
+      <p>
+        Title:
+        {' '}
+        {Title}
+      </p>
+      <p>
+        Rated:
+        {' '}
+        {Rated}
+      </p>
+      <p>
+        Year:
+        {' '}
+        {Year}
+      </p>
+      <p>
+        Plot:
+        {' '}
+        {Plot}
+      </p>
     </>
   );
 }
