@@ -43,24 +43,16 @@ function FilmRequest() {
         Search
       </button>
       <p>
-        Title:
-        {' '}
-        {Title}
+        {`Title: ${Title}`}
       </p>
       <p>
-        Rated:
-        {' '}
-        {Rated}
+        {`Rated: ${Rated}`}
       </p>
       <p>
-        Year:
-        {' '}
-        {Year}
+        {`Year: ${Year}`}
       </p>
       <p>
-        Plot:
-        {' '}
-        {Plot}
+        {`Plot: ${Plot}`}
       </p>
     </>
   );
