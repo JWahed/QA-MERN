@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import AddItem from './AddItem';
-import BasketItems from './BasketItems';
+import List from './List';
 
 function Cart() {
   const [itemName, setItemName] = useState();
@@ -28,7 +28,7 @@ function Cart() {
         newItem={newItem}
         handleAdd={handleAdd}
       />
-      <BasketItems
+      <List
         allItems={items}
         handler={handleDelete}
       />

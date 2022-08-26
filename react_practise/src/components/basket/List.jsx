@@ -1,14 +1,14 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
 
-import DisplayItem from './DisplayItem';
+import ListItem from './DisplayItem';
 
-function BasketItems({ allItems, handler }) {
+function List({ allItems, handler }) {
   return (
     <ul>
       {allItems.map((itemName, index) => (
 
-        <DisplayItem
+        <ListItem
           itemName={itemName}
           key={index}
           id={index}
@@ -19,4 +19,4 @@ function BasketItems({ allItems, handler }) {
   );
 }
 
-export default BasketItems;
+export default List;
