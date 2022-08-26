@@ -14,6 +14,7 @@ import NotFound from './components/routes_exercise/NotFound';
 import Home from './components/routes_exercise/Home';
 import Contact from './components/routes_exercise/Contact';
 import Users from './components/routes_exercise/Users';
+import MovieDetails from './components/film_request/MovieDetails';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/404" element={<NotFound />} />
               <Route path="/film_request" element={<FilmRequest />} />
+              <Route path="/film_request/:imdbID" element={<MovieDetails />} />
             </Routes>
           </BrowserRouter>
         </div>
